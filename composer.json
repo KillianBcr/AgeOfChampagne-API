@@ -68,8 +68,46 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "start": [
+            "symfony serve"
+        ],
+
+        "test:cs" : [
+            "php-cs-fixer fix --dry-run"
+        ],
+
+        "fix:cs": [
+            "php-cs-fixer fix"
+        ],
+
+        "test:codeception": [
+            "php bin/console doctrine:database:drop --force --quiet --env=test",
+            "php bin/console doctrine:database:create --quiet --env=test",
+            "php bin/console doctrine:schema:create --quiet --env=test",
+            "php vendor/bin/codecept run"
+        ],
+
+        "test": [
+            "@fix:cs",
+            "@test:codeception"
+
+        ],
+        "db": [
+            "php bin/console doctrine:database:drop --force --if-exists",
+            "php bin/console doctrine:database:create",
+            "php bin/console doctrine:migrations:migrate --no-interaction",
+            "php bin/console doctrine:fixtures:load --no-interaction"
         ]
     },
+
+    "scripts-descriptions": {
+        "start": "Lance le serveur web de test",
+        "test:cs": "Lance la commande de vérification du code",
+        "fix:cs": "Lance la commande de correction du code",
+        "db": "Génere 150 contacts"
+    },
+
     "conflict": {
         "symfony/symfony": "*"
     },
