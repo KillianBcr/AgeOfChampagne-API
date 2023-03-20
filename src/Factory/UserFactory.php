@@ -58,13 +58,14 @@ final class UserFactory extends ModelFactory
             'nom' => self::faker()->firstName(),
             'password' => 'test',
             'prenom' => self::faker()->lastName(),
-            'roles' => [],
+            'cp' => '51100',
+            'ville' => self::faker()->city(),
             'telephone' => self::faker()->unique()->phoneNumber(),
         ];
 
     }
 
-    /**
+    /**s
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization
      */
     protected function initialize(): self
