@@ -4,6 +4,7 @@ namespace App\Factory;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
 use Zenstruck\Foundry\RepositoryProxy;
@@ -29,14 +30,17 @@ use Zenstruck\Foundry\RepositoryProxy;
  */
 final class UserFactory extends ModelFactory
 {
+    private UserPasswordHasherInterface $passwordHasher;
+
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services
      *
      * @todo inject services if required
      */
-    public function __construct()
+    public function __construct(UserPasswordHasherInterface $passwordHasher)
     {
         parent::__construct();
+        $this->passwordHasher = $passwordHasher;
     }
 
     /**
@@ -46,19 +50,18 @@ final class UserFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
+        $domain = self::faker()->domainName();
+
         return [
-            'cp' => self::faker()->text(6),
-            'created_at' => \DateTimeImmutable::createFromMutable(self::faker()->dateTime()),
-            'datenais' => self::faker()->dateTime(),
-            'email' => self::faker()->text(180),
-            'nom' => self::faker()->text(30),
-            'password' => self::faker()->text(),
-            'prenom' => self::faker()->text(30),
+            'dateNais' => self::faker()->dateTime(),
+            'email' => self::faker()->unique()->numerify('####@'.$domain),
+            'nom' => self::faker()->firstName(),
+            'password' => 'test',
+            'prenom' => self::faker()->lastName(),
             'roles' => [],
-            'telephone' => self::faker()->text(30),
-            'updated_at' => \DateTimeImmutable::createFromMutable(self::faker()->dateTime()),
-            'ville' => self::faker()->text(30),
+            'telephone' => self::faker()->unique()->phoneNumber(),
         ];
+
     }
 
     /**
@@ -67,8 +70,9 @@ final class UserFactory extends ModelFactory
     protected function initialize(): self
     {
         return $this
-            // ->afterInstantiate(function(User $user): void {})
-        ;
+            ->afterInstantiate(function(User $user) {
+                $user->setPassword($this->passwordHasher->hashPassword($user, $user->getPassword()));
+            });
     }
 
     protected static function getClass(): string
