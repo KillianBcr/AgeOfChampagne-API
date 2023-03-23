@@ -121,6 +121,6 @@
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "symfony/maker-bundle": "^1.48",
-        "zenstruck/foundry": "^1.29"
+        "zenstruck/foundry": "^1.30"
     }
 }

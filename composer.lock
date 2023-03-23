@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a3c3f84d02c17c39669f1e8be04b969",
+    "content-hash": "7cb2629bacf8c7b033ddfa851d9ed6ac",
     "packages": [
         {
             "name": "api-platform/core",
@@ -6757,16 +6757,16 @@
         },
         {
             "name": "zenstruck/foundry",
-            "version": "v1.29.0",
+            "version": "v1.30.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/foundry.git",
-                "reference": "9d31ae64bea443c784c0ccabeb7feb8fb809d167"
+                "reference": "3f7a6e7393889ad2ffa4b3810e3ab142b7b9bccf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/9d31ae64bea443c784c0ccabeb7feb8fb809d167",
-                "reference": "9d31ae64bea443c784c0ccabeb7feb8fb809d167",
+                "url": "https://api.github.com/repos/zenstruck/foundry/zipball/3f7a6e7393889ad2ffa4b3810e3ab142b7b9bccf",
+                "reference": "3f7a6e7393889ad2ffa4b3810e3ab142b7b9bccf",
                 "shasum": ""
             },
             "require": {
@@ -6778,6 +6778,9 @@
                 "symfony/string": "^5.4|^6.0",
                 "zenstruck/assert": "^1.0",
                 "zenstruck/callback": "^1.1"
+            },
+            "conflict": {
+                "doctrine/mongodb-odm": "2.5.0"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.4",
@@ -6831,7 +6834,7 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/foundry/issues",
-                "source": "https://github.com/zenstruck/foundry/tree/v1.29.0"
+                "source": "https://github.com/zenstruck/foundry/tree/v1.30.3"
             },
             "funding": [
                 {
@@ -6839,7 +6842,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-02-28T15:54:23+00:00"
+            "time": "2023-03-22T17:11:29+00:00"
         }
     ],
     "aliases": [],

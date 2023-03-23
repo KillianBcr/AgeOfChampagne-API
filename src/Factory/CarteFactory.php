@@ -47,8 +47,7 @@ final class CarteFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'name' => self::faker()->creditCardFull(),
-            'description' => self::faker()->paragraph(),
+            'name' => self::faker()->text(40),
         ];
     }
 
