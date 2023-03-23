@@ -1,69 +1,52 @@
 <?php
 
-namespace App\Factory;
+namespace App\Entity;
 
-use App\Entity\Carte;
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\CarteRepository;
-use Zenstruck\Foundry\ModelFactory;
-use Zenstruck\Foundry\Proxy;
-use Zenstruck\Foundry\RepositoryProxy;
+use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @extends ModelFactory<Carte>
- *
- * @method        Carte|Proxy create(array|callable $attributes = [])
- * @method static Carte|Proxy createOne(array $attributes = [])
- * @method static Carte|Proxy find(object|array|mixed $criteria)
- * @method static Carte|Proxy findOrCreate(array $attributes)
- * @method static Carte|Proxy first(string $sortedField = 'id')
- * @method static Carte|Proxy last(string $sortedField = 'id')
- * @method static Carte|Proxy random(array $attributes = [])
- * @method static Carte|Proxy randomOrCreate(array $attributes = [])
- * @method static CarteRepository|RepositoryProxy repository()
- * @method static Carte[]|Proxy[] all()
- * @method static Carte[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static Carte[]|Proxy[] createSequence(iterable|callable $sequence)
- * @method static Carte[]|Proxy[] findBy(array $attributes)
- * @method static Carte[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static Carte[]|Proxy[] randomSet(int $number, array $attributes = [])
- */
-final class CarteFactory extends ModelFactory
+#[ORM\Entity(repositoryClass: CarteRepository::class)]
+#[ApiResource]
+class Carte
 {
-    /**
-     * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#factories-as-services
-     *
-     * @todo inject services if required
-     */
-    public function __construct()
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\Column(length: 40)]
+    private ?string $name = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $description = null;
+
+    public function getId(): ?int
     {
-        parent::__construct();
+        return $this->id;
     }
 
-    /**
-     * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#model-factories
-     *
-     * @todo add your default values here
-     */
-    protected function getDefaults(): array
+    public function getName(): ?string
     {
-        return [
-            'name' => self::faker()->creditCardFull(),
-            'description' => self::faker()->paragraph(),
-        ];
+        return $this->name;
     }
 
-    /**
-     * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization
-     */
-    protected function initialize(): self
+    public function setName(string $name): self
     {
-        return $this
-            // ->afterInstantiate(function(Carte $carte): void {})
-        ;
+        $this->name = $name;
+
+        return $this;
     }
 
-    protected static function getClass(): string
+    public function getDescription(): ?string
     {
-        return Carte::class;
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
     }
 }
