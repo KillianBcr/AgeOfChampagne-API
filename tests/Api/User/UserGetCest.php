@@ -15,6 +15,9 @@ class UserGetCest
             'email' => 'string',
             'nom' => 'string',
             'prenom' => 'string',
+            'telephone' => 'string',
+            'cp' => 'string',
+            'ville' => 'string',
         ];
     }
 
@@ -25,6 +28,9 @@ class UserGetCest
             'email' => 'user1@example.com',
             'nom' => 'firstname1',
             'prenom' => 'lastname1',
+            'telephone' => '061234567',
+            'cp' => '51100',
+            'ville' => 'Reims',
         ];
         UserFactory::createOne($data);
 
@@ -45,6 +51,9 @@ class UserGetCest
             'email' => 'user1@example.com',
             'nom' => 'firstname1',
             'prenom' => 'lastname1',
+            'telephone' => '061234567',
+            'cp' => '51100',
+            'ville' => 'Reims',
         ];
         /** @var $user User */
         $user = UserFactory::createOne()->object();
