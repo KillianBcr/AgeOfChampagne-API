@@ -22,7 +22,7 @@ use Zenstruck\Foundry\RepositoryProxy;
  * @method static PartenaireRepository|RepositoryProxy repository()
  * @method static Partenaire[]|Proxy[] all()
  * @method static Partenaire[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static Partenaire[]|Proxy[] createSequence(array|callable $sequence)
+ * @method static Partenaire[]|Proxy[] createSequence(iterable|callable $sequence)
  * @method static Partenaire[]|Proxy[] findBy(array $attributes)
  * @method static Partenaire[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
  * @method static Partenaire[]|Proxy[] randomSet(int $number, array $attributes = [])
@@ -56,6 +56,7 @@ final class PartenaireFactory extends ModelFactory
         ];
     }
 
+
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization
      */
@@ -63,7 +64,7 @@ final class PartenaireFactory extends ModelFactory
     {
         return $this
             // ->afterInstantiate(function(Partenaire $partenaire): void {})
-            ;
+        ;
     }
 
     protected static function getClass(): string
