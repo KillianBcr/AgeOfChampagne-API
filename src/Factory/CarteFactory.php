@@ -11,21 +11,21 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<Carte>
  *
- * @method        Carte|Proxy create(array|callable $attributes = [])
- * @method static Carte|Proxy createOne(array $attributes = [])
- * @method static Carte|Proxy find(object|array|mixed $criteria)
- * @method static Carte|Proxy findOrCreate(array $attributes)
- * @method static Carte|Proxy first(string $sortedField = 'id')
- * @method static Carte|Proxy last(string $sortedField = 'id')
- * @method static Carte|Proxy random(array $attributes = [])
- * @method static Carte|Proxy randomOrCreate(array $attributes = [])
+ * @method        Carte|Proxy                     create(array|callable $attributes = [])
+ * @method static Carte|Proxy                     createOne(array $attributes = [])
+ * @method static Carte|Proxy                     find(object|array|mixed $criteria)
+ * @method static Carte|Proxy                     findOrCreate(array $attributes)
+ * @method static Carte|Proxy                     first(string $sortedField = 'id')
+ * @method static Carte|Proxy                     last(string $sortedField = 'id')
+ * @method static Carte|Proxy                     random(array $attributes = [])
+ * @method static Carte|Proxy                     randomOrCreate(array $attributes = [])
  * @method static CarteRepository|RepositoryProxy repository()
- * @method static Carte[]|Proxy[] all()
- * @method static Carte[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static Carte[]|Proxy[] createSequence(iterable|callable $sequence)
- * @method static Carte[]|Proxy[] findBy(array $attributes)
- * @method static Carte[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static Carte[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static Carte[]|Proxy[]                 all()
+ * @method static Carte[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
+ * @method static Carte[]|Proxy[]                 createSequence(iterable|callable $sequence)
+ * @method static Carte[]|Proxy[]                 findBy(array $attributes)
+ * @method static Carte[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
+ * @method static Carte[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
 final class CarteFactory extends ModelFactory
 {

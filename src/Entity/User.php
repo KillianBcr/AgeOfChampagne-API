@@ -29,7 +29,7 @@ use Symfony\Component\Validator\Constraints as Assert;
             normalizationContext: ['groups' => ['get_User', 'get_Me']],
             denormalizationContext: ['groups' => ['set_User']],
             security: "is_granted('ROLE_USER') and object == user"
-        )
+        ),
     ]
 )]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
@@ -44,7 +44,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $email = null;
 
     #[ORM\Column]
-    private array $roles = ["ROLE_USER"];
+    private array $roles = ['ROLE_USER'];
 
     /**
      * @var string The hashed password
@@ -77,10 +77,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Groups(['get_User', 'set_User'])]
     private ?string $telephone = null;
 
-    #[ORM\Column(type: 'datetime_immutable',options: ['default'=>'CURRENT_TIMESTAMP'])]
+    #[ORM\Column(type: 'datetime_immutable', options: ['default' => 'CURRENT_TIMESTAMP'])]
     private ?\DateTimeImmutable $created_at = null;
 
-    #[ORM\Column(type: 'datetime_immutable',nullable: true)]
+    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     private ?\DateTimeImmutable $updated_at = null;
 
     #[ORM\Column(length: 6)]
@@ -107,7 +107,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->created_at = new \DateTimeImmutable();
         $this->updated_at = new \DateTimeImmutable();
     }
-
 
     public function getId(): ?int
     {
