@@ -2,18 +2,42 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Put;
 use App\Repository\UserRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[ApiResource(
+    operations: [
+        new Get(
+            normalizationContext: ['groups' => ['get_User']]
+        ),
+        new Put(
+            normalizationContext: ['groups' => ['get_User', 'get_Me']],
+            denormalizationContext: ['groups' => ['set_User']],
+            security: "is_granted('ROLE_USER') and object == user"
+        ),
+        new Patch(
+            normalizationContext: ['groups' => ['get_User', 'get_Me']],
+            denormalizationContext: ['groups' => ['set_User']],
+            security: "is_granted('ROLE_USER') and object == user"
+        )
+    ]
+)]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['get_User'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
@@ -26,15 +50,31 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @var string The hashed password
      */
     #[ORM\Column]
+    #[Groups(['set_User'])]
     private ?string $password = null;
 
     #[ORM\Column(length: 30)]
+    #[Assert\Regex(
+        pattern: '/[<>&"]/',
+        match: false,
+    )]
+    #[Groups(['get_User', 'set_User'])]
     private ?string $nom = null;
 
     #[ORM\Column(length: 30)]
+    #[Assert\Regex(
+        pattern: '/[<>&"]/',
+        match: false,
+    )]
+    #[Groups(['get_User', 'set_User'])]
     private ?string $prenom = null;
 
     #[ORM\Column(length: 30)]
+    #[Assert\Regex(
+        pattern: '/[<>&"]/',
+        match: false,
+    )]
+    #[Groups(['get_User', 'set_User'])]
     private ?string $telephone = null;
 
     #[ORM\Column(type: 'datetime_immutable',options: ['default'=>'CURRENT_TIMESTAMP'])]
@@ -44,9 +84,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?\DateTimeImmutable $updated_at = null;
 
     #[ORM\Column(length: 6)]
+    #[Assert\Regex(
+        pattern: '/[<>&"]/',
+        match: false,
+    )]
+    #[Groups(['get_User', 'set_User'])]
     private ?string $cp = null;
 
     #[ORM\Column(length: 30)]
+    #[Assert\Regex(
+        pattern: '/[<>&"]/',
+        match: false,
+    )]
+    #[Groups(['get_User', 'set_User'])]
     private ?string $ville = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
