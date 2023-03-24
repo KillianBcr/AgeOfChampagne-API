@@ -12,7 +12,7 @@ class UserGetCest
     {
         return [
             'id' => 'integer',
-            'email' => 'string',
+            'email' => 'string:email',
             'nom' => 'string',
             'prenom' => 'string',
             'telephone' => 'string',
@@ -25,7 +25,6 @@ class UserGetCest
     {
         // 1. 'Arrange'
         $data = [
-            'email' => 'user1@example.com',
             'nom' => 'firstname1',
             'prenom' => 'lastname1',
             'telephone' => '061234567',
@@ -48,7 +47,6 @@ class UserGetCest
     {
         // 1. 'Arrange'
         $data = [
-            'email' => 'user1@example.com',
             'nom' => 'firstname1',
             'prenom' => 'lastname1',
             'telephone' => '061234567',
