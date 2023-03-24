@@ -15,6 +15,37 @@ use ApiPlatform\Metadata\Put;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: PartenaireRepository::class)]
+
+
+#[ApiResource(
+    operations: [
+        new Get(),
+        new Post(
+            security: "is_granted('ROLE_ADMIN')",
+        ),
+        new Put(
+            security: "is_granted('ROLE_ADMIN') and object.getUser() == user",
+        ),
+        new Patch(
+            security: "is_granted('ROLE_ADMIN') and object.getUser() == user",
+        ),
+        new Delete(
+            security: "is_granted('ROLE_ADMIN') and object.getUser() == user",
+        ),
+        new Put(
+            normalizationContext: ['groups' => ['get_User', 'get_Me']],
+            denormalizationContext: ['groups' => ['set_User']],
+            security: "is_granted('ROLE_USER') and object == user"
+        ),
+        new Patch(
+            normalizationContext: ['groups' => ['get_User', 'get_Me']],
+            denormalizationContext: ['groups' => ['set_User']],
+            security: "is_granted('ROLE_USER') and object == user"
+        ),
+
+    ]
+)]
+
 class Partenaire
 {
     #[ORM\Id]
@@ -47,10 +78,10 @@ class Partenaire
         return $this->nom;
     }
 
+    #[Groups(['get_User', 'set_User'])]
     public function setNom(?string $nom): self
     {
         $this->nom = $nom;
-
         return $this;
     }
 
@@ -59,6 +90,7 @@ class Partenaire
         return $this->email;
     }
 
+    #[Groups(['get_User', 'set_User'])]
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -71,6 +103,7 @@ class Partenaire
         return $this->telephone;
     }
 
+    #[Groups(['get_User', 'set_User'])]
     public function setTelephone(?string $telephone): self
     {
         $this->telephone = $telephone;
@@ -83,6 +116,7 @@ class Partenaire
         return $this->description;
     }
 
+    #[Groups(['get_User', 'set_User'])]
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -95,6 +129,7 @@ class Partenaire
         return $this->image;
     }
 
+    #[Groups(['get_User', 'set_User'])]
     public function setImage($image): self
     {
         $this->image = $image;
