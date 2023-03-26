@@ -10,7 +10,7 @@ modules:
         - Doctrine2:
               depends: Symfony
               cleanup: true # All doctrine queries will be wrapped in a transaction, which will be rolled back at the end of each test
-#        - \App\Tests\Support\Module\ApiPlatform:
-#              url: ''
-#              base_path: '/api'
-#              depends: Symfony
+        - \App\Tests\Support\Module\ApiPlatform:
+              url: ''
+              base_path: '/api'
+              depends: Symfony

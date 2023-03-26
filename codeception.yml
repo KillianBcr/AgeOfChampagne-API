@@ -7,9 +7,9 @@ paths:
     support: tests/Support
     envs: tests/_envs
 actor_suffix: Tester
-params:
-    - .env
-    - .env.test
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+params:
+    - .env
+    - .env.test
