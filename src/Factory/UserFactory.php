@@ -61,6 +61,7 @@ final class UserFactory extends ModelFactory
             'cp' => '51100',
             'ville' => self::faker()->city(),
             'telephone' => self::faker()->unique()->phoneNumber(),
+            'roles' => ['ROLE_USER'],
         ];
     }
 
