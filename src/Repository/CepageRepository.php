@@ -40,7 +40,7 @@ class CepageRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Cepage[] Returns an array of Cepage objects
+//     * @return CepageFixtures[] Returns an array of CepageFixtures objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class CepageRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Cepage
+//    public function findOneBySomeField($value): ?CepageFixtures
 //    {
 //        return $this->createQueryBuilder('c')
 //            ->andWhere('c.exampleField = :val')
