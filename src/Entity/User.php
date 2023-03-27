@@ -39,16 +39,15 @@ use Symfony\Component\Validator\Constraints as Assert;
         ),
 
         new Put(
-            normalizationContext: ['groups' => ['get_User', 'get_Me']],
             denormalizationContext: ['groups' => ['set_User']],
             security: "is_granted('ROLE_USER') and object == user"
         ),
         new Patch(
-            normalizationContext: ['groups' => ['get_User', 'get_Me']],
             denormalizationContext: ['groups' => ['set_User']],
             security: "is_granted('ROLE_USER') and object == user"
         ),
-    ]
+    ],
+    normalizationContext: ['groups' => ['get_User', 'get_Me']]
 )]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -59,14 +58,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
-    #[Groups(['set_User', 'get_Me'])]
+    #[Groups(['set_User', 'get_Me', 'get_User'])]
     #[Assert\Email(
         message: 'The email {{ value }} is not a valid email.',
     )]
     private ?string $email = null;
 
     #[ORM\Column]
-    private array $roles = ['ROLE_USER'];
+    private array $roles = [];
 
     /**
      * @var string The hashed password
