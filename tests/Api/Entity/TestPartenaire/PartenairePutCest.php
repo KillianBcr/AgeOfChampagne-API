@@ -46,10 +46,4 @@ class PartenairePutCest
         // 3. 'Assert'
         $I->seeResponseCodeIs(HttpCode::FORBIDDEN);
     }
-
-
-
-
-
-
 }
