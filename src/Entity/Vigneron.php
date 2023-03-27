@@ -11,6 +11,7 @@ use ApiPlatform\Metadata\Put;
 use App\Repository\VigneronRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: VigneronRepository::class)]
 #[ApiResource(
@@ -72,6 +73,7 @@ class Vigneron
         return $this->nom;
     }
 
+    #[Groups(['get_User', 'set_User'])]
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
@@ -84,6 +86,7 @@ class Vigneron
         return $this->prenom;
     }
 
+    #[Groups(['get_User', 'set_User'])]
     public function setPrenom(string $prenom): self
     {
         $this->prenom = $prenom;
@@ -96,6 +99,7 @@ class Vigneron
         return $this->description;
     }
 
+    #[Groups(['get_User', 'set_User'])]
     public function setDescription(string $description): self
     {
         $this->description = $description;
@@ -108,6 +112,7 @@ class Vigneron
         return $this->email;
     }
 
+    #[Groups(['get_User', 'set_User'])]
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -120,6 +125,7 @@ class Vigneron
         return $this->telephone;
     }
 
+    #[Groups(['get_User', 'set_User'])]
     public function setTelephone(string $telephone): self
     {
         $this->telephone = $telephone;
