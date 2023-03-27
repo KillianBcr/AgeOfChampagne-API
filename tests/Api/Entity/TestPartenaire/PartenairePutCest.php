@@ -18,7 +18,7 @@ class PartenairePutCest
             'email' => 'string:email',
             'telephone' => 'string',
             'description' => 'string',
-            'image'=> 'blob',
+            'image' => 'blob',
         ];
     }
 
@@ -32,6 +32,7 @@ class PartenairePutCest
         // 3. 'Assert'
         $I->seeResponseCodeIs(HttpCode::UNAUTHORIZED);
     }
+
     public function authenticatedUserForbiddenToPutOtherPartenaire(ApiTester $I): void
     {
         // 1. 'Arrange'
