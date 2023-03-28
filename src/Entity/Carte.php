@@ -7,9 +7,44 @@ use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
+use App\Repository\ActiviteRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
+#[ORM\Entity(repositoryClass: ActiviteRepository::class)]
+#[\ApiPlatform\Metadata\ApiResource(
+    operations: [
+        new Get(),
+        new Post(
+            security: "is_granted('ROLE_ADMIN')",
+        ),
+        new Put(
+            security: "is_granted('ROLE_ADMIN') and object.getUser() == user",
+        ),
+        new Patch(
+            security: "is_granted('ROLE_ADMIN') and object.getUser() == user",
+        ),
+        new Delete(
+            security: "is_granted('ROLE_ADMIN') and object.getUser() == user",
+        ),
+        new Put(
+            normalizationContext: ['groups' => ['get_User', 'get_Me']],
+            denormalizationContext: ['groups' => ['set_User']],
+            security: "is_granted('ROLE_USER') and object == user"
+        ),
+        new Patch(
+            normalizationContext: ['groups' => ['get_User', 'get_Me']],
+            denormalizationContext: ['groups' => ['set_User']],
+            security: "is_granted('ROLE_USER') and object == user"
+        ),
+    ]
+)]
 /**
  * @ORM\Entity
  *
@@ -33,48 +68,26 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Carte
 {
-    /**
-     * @ORM\Id
-     *
-     * @ORM\GeneratedValue
-     *
-     * @ORM\Column(type="integer")
-     *
-     * @ApiProperty(identifier=true)
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private ?int $id = null;
 
-    /**
-     * @ORM\Column(type="string", length=40)
-     *
-     * @Assert\NotBlank
-     */
+    #[ORM\Column(type: 'string', length: 40)]
+    #[Assert\NotBlank]
     private ?string $name = null;
 
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
+    #[ORM\Column(type: 'text', nullable: true)]
     private ?string $description = null;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
+    #[ORM\Column(type: 'boolean')]
     private bool $public = true;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
+    #[ORM\Column(type: 'datetime')]
     private \DateTimeInterface $createdAt;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
+    #[ORM\Column(type: 'integer')]
     private int $notes = 0;
-
-    public function __construct()
-    {
-        $this->createdAt = new \DateTimeImmutable();
-    }
 
     public function getId(): ?int
     {
@@ -120,6 +133,13 @@ class Carte
     public function getCreatedAt(): \DateTimeInterface
     {
         return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
     }
 
     public function getNotes(): int
