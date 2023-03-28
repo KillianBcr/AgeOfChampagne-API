@@ -20,7 +20,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Sae4 01 Api');
+            ->setTitle('AOC - Administration')->renderContentMaximized();
     }
 
     public function configureMenuItems(): iterable
