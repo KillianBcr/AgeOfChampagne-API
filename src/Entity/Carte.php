@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiFilter;
-use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
@@ -15,7 +14,6 @@ use ApiPlatform\Metadata\Put;
 use App\Repository\ActiviteRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
 
 #[ORM\Entity(repositoryClass: ActiviteRepository::class)]
 #[\ApiPlatform\Metadata\ApiResource(
@@ -86,9 +84,6 @@ class Carte
     #[ORM\Column(type: 'datetime')]
     private \DateTimeInterface $createdAt;
 
-    #[ORM\Column(type: 'integer')]
-    private int $notes = 0;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -138,18 +133,6 @@ class Carte
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    public function getNotes(): int
-    {
-        return $this->notes;
-    }
-
-    public function setNotes(int $notes): self
-    {
-        $this->notes = $notes;
 
         return $this;
     }
