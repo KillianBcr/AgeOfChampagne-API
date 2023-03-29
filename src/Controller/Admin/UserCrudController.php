@@ -20,7 +20,7 @@ class UserCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        return array(
+        return [
             IdField::new('id')->hideOnForm(),
             TextField::new('nom'),
             TextField::new('prenom'),
@@ -37,8 +37,6 @@ class UserCrudController extends AbstractCrudController
             DateTimeField::new('created_at'),
             DateTimeField::new('updated_at')->hideOnIndex(),
             // caractéristiques du champs de mot de passe
-
-        );
+        ];
     }
-
 }
