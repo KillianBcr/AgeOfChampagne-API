@@ -27,4 +27,7 @@ class ApiTester extends \Codeception\Actor
     /*
      * Define custom actions here
      */
+    public function truncateEntities(array $array)
+    {
+    }
 }
