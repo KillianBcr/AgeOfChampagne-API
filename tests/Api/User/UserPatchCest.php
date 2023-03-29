@@ -109,6 +109,6 @@ class UserPatchCest
             'Authentification'
         );
         $I->seeResponseCodeIsSuccessful();
-        $I->seeInCurrentUrl('/api/docs');
+        $I->seeInCurrentUrl('/login');
     }
 }

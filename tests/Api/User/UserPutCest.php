@@ -111,6 +111,6 @@ class UserPutCest
 
         // 3. 'Assert'
         $I->seeResponseCodeIsSuccessful();
-        $I->seeInCurrentUrl('/api/docs');
+        $I->seeInCurrentUrl('/login');
     }
 }
