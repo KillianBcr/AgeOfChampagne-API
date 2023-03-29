@@ -1,0 +1,77 @@
+body {
+    background-image: url("../img/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    z-index: -1;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+    bottom: -50px;
+    background-image: inherit;
+    filter: blur(20px);
+}
+
+
+.container {
+    background-color: #252D30;
+    border: 1px solid #252D30;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow-y: auto;
+}
+
+
+.container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.container input[type="email"],
+.container input[type="password"] {
+    background-color: #252D30;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.container button[type="submit"] {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 100%;
+    max-height: 200px;
+}
