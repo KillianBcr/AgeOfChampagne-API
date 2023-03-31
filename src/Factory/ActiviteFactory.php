@@ -11,21 +11,21 @@ use Zenstruck\Foundry\RepositoryProxy;
 /**
  * @extends ModelFactory<Activite>
  *
- * @method        Activite|Proxy create(array|callable $attributes = [])
- * @method static Activite|Proxy createOne(array $attributes = [])
- * @method static Activite|Proxy find(object|array|mixed $criteria)
- * @method static Activite|Proxy findOrCreate(array $attributes)
- * @method static Activite|Proxy first(string $sortedField = 'id')
- * @method static Activite|Proxy last(string $sortedField = 'id')
- * @method static Activite|Proxy random(array $attributes = [])
- * @method static Activite|Proxy randomOrCreate(array $attributes = [])
+ * @method        Activite|Proxy                     create(array|callable $attributes = [])
+ * @method static Activite|Proxy                     createOne(array $attributes = [])
+ * @method static Activite|Proxy                     find(object|array|mixed $criteria)
+ * @method static Activite|Proxy                     findOrCreate(array $attributes)
+ * @method static Activite|Proxy                     first(string $sortedField = 'id')
+ * @method static Activite|Proxy                     last(string $sortedField = 'id')
+ * @method static Activite|Proxy                     random(array $attributes = [])
+ * @method static Activite|Proxy                     randomOrCreate(array $attributes = [])
  * @method static ActiviteRepository|RepositoryProxy repository()
- * @method static Activite[]|Proxy[] all()
- * @method static Activite[]|Proxy[] createMany(int $number, array|callable $attributes = [])
- * @method static Activite[]|Proxy[] createSequence(iterable|callable $sequence)
- * @method static Activite[]|Proxy[] findBy(array $attributes)
- * @method static Activite[]|Proxy[] randomRange(int $min, int $max, array $attributes = [])
- * @method static Activite[]|Proxy[] randomSet(int $number, array $attributes = [])
+ * @method static Activite[]|Proxy[]                 all()
+ * @method static Activite[]|Proxy[]                 createMany(int $number, array|callable $attributes = [])
+ * @method static Activite[]|Proxy[]                 createSequence(iterable|callable $sequence)
+ * @method static Activite[]|Proxy[]                 findBy(array $attributes)
+ * @method static Activite[]|Proxy[]                 randomRange(int $min, int $max, array $attributes = [])
+ * @method static Activite[]|Proxy[]                 randomSet(int $number, array $attributes = [])
  */
 final class ActiviteFactory extends ModelFactory
 {

@@ -33,13 +33,6 @@ class PartenairePutCest
         $I->seeResponseCodeIs(HttpCode::UNAUTHORIZED);
     }
 
-
-
-
-
-
-
-
     /*public function authenticatedUserForbiddenToPutOtherPartenaire(ApiTester $I): void
     {
         $dataInit = [
