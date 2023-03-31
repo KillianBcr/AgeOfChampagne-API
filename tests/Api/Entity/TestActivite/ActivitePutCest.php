@@ -20,11 +20,17 @@ class ActivitePutCest
 
     public function getActivite(ApiTester $I): void
     {
-        $activite = ActiviteFactory::createOne();
-        $I->sendGet('/api/activite/1');
+        $dataInit = [
+            'nom' => 'test',
+            'description' => 'coucou',
+            'icon' => 'azertyuiop',
+        ];
+
+        $activite = ActiviteFactory::createOne($dataInit)->object();
+        $I->sendGet('/api/activites/1');
         $I->seeResponseCodeIsSuccessful();
         $I->seeResponseIsJson();
-        $I->seeResponseIsAnEntity(Activite::class, '/api/activite/1');
+        $I->seeResponseIsAnEntity(Activite::class, '/api/activites/1');
         $I->seeResponseIsAnItem(self::expectedProperties(), (array) $activite);
     }
 }

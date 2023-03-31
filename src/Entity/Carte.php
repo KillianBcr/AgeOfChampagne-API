@@ -81,7 +81,6 @@ class Carte
     #[ORM\Column(type: 'boolean')]
     private bool $public = true;
 
-
     public function getId(): ?int
     {
         return $this->id;
@@ -122,5 +121,4 @@ class Carte
 
         return $this;
     }
-
 }
