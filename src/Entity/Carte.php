@@ -81,8 +81,6 @@ class Carte
     #[ORM\Column(type: 'boolean')]
     private bool $public = true;
 
-    #[ORM\Column(type: 'datetime')]
-    private \DateTimeInterface $createdAt;
 
     public function getId(): ?int
     {
@@ -125,15 +123,4 @@ class Carte
         return $this;
     }
 
-    public function getCreatedAt(): \DateTimeInterface
-    {
-        return $this->createdAt;
-    }
-
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
 }
