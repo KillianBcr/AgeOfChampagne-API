@@ -47,19 +47,24 @@ class Crus
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['get_User', 'set_User'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 30)]
+    #[Groups(['get_User', 'set_User'])]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['get_User', 'set_User'])]
     private ?string $description = null;
 
     #[ORM\ManyToOne(inversedBy: 'crus')]
     #[ORM\JoinColumn(nullable: false)]
+    #[Groups(['get_User', 'set_User'])]
     private ?Cepage $cepage = null;
 
     #[ORM\OneToMany(mappedBy: 'crus', targetEntity: Carte::class)]
+    #[Groups(['get_User', 'set_User'])]
     private Collection $cartes;
 
     public function __construct()
@@ -77,7 +82,6 @@ class Crus
         return $this->nom;
     }
 
-    #[Groups(['get_User', 'set_User'])]
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
@@ -90,7 +94,6 @@ class Crus
         return $this->description;
     }
 
-    #[Groups(['get_User', 'set_User'])]
     public function setDescription(string $description): self
     {
         $this->description = $description;
@@ -103,7 +106,6 @@ class Crus
         return $this->cepage;
     }
 
-    #[Groups(['get_User', 'set_User'])]
     public function setCepage(?Cepage $cepage): self
     {
         $this->cepage = $cepage;
