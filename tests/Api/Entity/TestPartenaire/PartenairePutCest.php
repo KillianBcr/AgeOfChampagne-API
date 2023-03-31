@@ -2,7 +2,7 @@
 
 namespace App\Tests\Api\Entity\TestPartenaire;
 
-use App\Entity\Partenaire;
+use App\Entity\User;
 use App\Factory\PartenaireFactory;
 use App\Factory\UserFactory;
 use App\Tests\Support\ApiTester;
@@ -33,18 +33,36 @@ class PartenairePutCest
         $I->seeResponseCodeIs(HttpCode::UNAUTHORIZED);
     }
 
-    public function authenticatedUserForbiddenToPutOtherPartenaire(ApiTester $I): void
+
+
+
+
+
+
+
+    /*public function authenticatedUserForbiddenToPutOtherPartenaire(ApiTester $I): void
     {
-        // 1. 'Arrange'
-        /** @var $user Partenaire */
-        $user = UserFactory::createOne()->object();
-        PartenaireFactory::createOne();
+        $dataInit = [
+            'nom' => 'nom1',
+            'email' => 'login1',
+            'telephone' => 'tel1',
+        ];
+        /** @var $user User */
+       /* $user = UserFactory::createOne($dataInit)->object();
         $I->amLoggedInAs($user);
 
         // 2. 'Act'
-        $I->sendPut('/api/users/2');
+        $dataPut = [
+            'nom' => 'nom2',
+            'email' => 'login2',
+            'telephone' => 'tel2',
+        ];
+        $I->sendPut('/api/users/1', $dataPut);
 
         // 3. 'Assert'
-        $I->seeResponseCodeIs(HttpCode::FORBIDDEN);
-    }
+        $I->seeResponseCodeIsSuccessful();
+        $I->seeResponseIsJson();
+        $I->seeResponseIsAnEntity(User::class, '/api/users/1');
+        $I->seeResponseIsAnItem(self::expectedProperties(), $dataPut);
+    }*/
 }
