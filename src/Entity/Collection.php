@@ -53,7 +53,7 @@ class Collection
     private ?int $userID = null;
 
     #[ORM\Column]
-    #[Groups(['get_User', 'set_User'])]a
+    #[Groups(['get_User', 'set_User'])]
     private ?int $cardID = null;
 
     public function getId(): ?int

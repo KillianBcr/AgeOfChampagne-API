@@ -47,15 +47,19 @@ class Cepage
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['get_User', 'set_User'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['get_User', 'set_User'])]
     private ?string $name = null;
 
     #[ORM\OneToMany(mappedBy: 'cepage', targetEntity: Crus::class)]
+    #[Groups(['get_User', 'set_User'])]
     private Collection $crus;
 
     #[ORM\OneToMany(mappedBy: 'cepage', targetEntity: Carte::class)]
+    #[Groups(['get_User', 'set_User'])]
     private Collection $cartes;
 
     public function __construct()
@@ -74,7 +78,6 @@ class Cepage
         return $this->name;
     }
 
-    #[Groups(['get_User', 'set_User'])]
     public function setName(string $name): self
     {
         $this->name = $name;
