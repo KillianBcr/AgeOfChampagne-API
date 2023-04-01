@@ -46,15 +46,19 @@ class Activite
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
+    #[Groups(['get_User'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 30, nullable: true)]
+    #[Groups(['get_User'])]
     private ?string $nom = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Groups(['get_User'])]
     private ?string $description = null;
 
     #[ORM\Column(length: 255, nullable: true)]
+    #[Groups(['get_User'])]
     private ?string $icon = null;
 
     public function getId(): ?int
