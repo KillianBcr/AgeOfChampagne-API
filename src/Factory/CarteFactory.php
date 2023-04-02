@@ -46,10 +46,17 @@ final class CarteFactory extends ModelFactory
      */
     protected function getDefaults(): array
     {
+        $name = self::faker()->text(10);
+        $qrCode = self::faker()->numerify('###');
+        $description = self::faker()->sentence(5);
+
         return [
-            'name' => self::faker()->text(40),
+            'name' => $name,
+            'qrCode' => $qrCode,
+            'description' => $description,
         ];
     }
+
 
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization
