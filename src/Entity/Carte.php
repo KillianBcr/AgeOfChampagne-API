@@ -13,10 +13,9 @@ use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
 use App\Repository\ActiviteRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-
 
 #[ORM\Entity(repositoryClass: ActiviteRepository::class)]
 #[\ApiPlatform\Metadata\ApiResource(
@@ -97,7 +96,6 @@ class Carte
     #[ORM\Column(type: 'datetime_immutable', nullable: true)]
     private \DateTimeImmutable $updatedAt;
 
-
     public function getId(): ?int
     {
         return $this->id;
@@ -150,6 +148,7 @@ class Carte
 
         return $this;
     }
+
     public function setImageFile(?File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
@@ -185,5 +184,4 @@ class Carte
 
         return $this;
     }
-
 }

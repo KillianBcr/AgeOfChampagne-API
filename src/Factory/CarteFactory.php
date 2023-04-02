@@ -57,7 +57,6 @@ final class CarteFactory extends ModelFactory
         ];
     }
 
-
     /**
      * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization
      */
