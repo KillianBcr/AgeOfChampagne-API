@@ -98,7 +98,6 @@ class Carte
     private \DateTimeImmutable $updatedAt;
 
 
-
     public function getId(): ?int
     {
         return $this->id;
