@@ -81,6 +81,9 @@ class Carte
     #[ORM\Column(type: 'boolean')]
     private bool $public = true;
 
+    #[ORM\Column(length: 255)]
+    private ?string $qrcode = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -118,6 +121,18 @@ class Carte
     public function setPublic(bool $public): self
     {
         $this->public = $public;
+
+        return $this;
+    }
+
+    public function getQrcode(): ?string
+    {
+        return $this->qrcode;
+    }
+
+    public function setQrcode(string $qrcode): self
+    {
+        $this->qrcode = $qrcode;
 
         return $this;
     }
