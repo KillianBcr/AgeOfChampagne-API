@@ -12,9 +12,37 @@ use ApiPlatform\Metadata\Put;
 use App\Repository\RegionRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 
 #[ORM\Entity(repositoryClass: RegionRepository::class)]
+#[ApiResource(
+    operations: [
+        new Get(),
+        new Post(
+            security: "is_granted('ROLE_ADMIN')",
+        ),
+        new Put(
+            security: "is_granted('ROLE_ADMIN') and object.getUser() == user",
+        ),
+        new Patch(
+            security: "is_granted('ROLE_ADMIN') and object.getUser() == user",
+        ),
+        new Delete(
+            security: "is_granted('ROLE_ADMIN') and object.getUser() == user",
+        ),
+        new Put(
+            normalizationContext: ['groups' => ['get_User', 'get_Me']],
+            denormalizationContext: ['groups' => ['set_User']],
+            security: "is_granted('ROLE_USER') and object == user"
+        ),
+        new Patch(
+            normalizationContext: ['groups' => ['get_User', 'get_Me']],
+            denormalizationContext: ['groups' => ['set_User']],
+            security: "is_granted('ROLE_USER') and object == user"
+        ),
+    ]
+)]
 class Region
 {
     #[ORM\Id]
@@ -44,6 +72,7 @@ class Region
         return $this->nom;
     }
 
+    #[Groups(['get_User', 'set_User'])]
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
