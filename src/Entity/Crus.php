@@ -15,6 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: CepageRepository::class)]
+#[ApiFilter(SearchFilter::class, properties: ['name' => 'ipartial'])]
 #[ApiResource(
     operations: [
         new Get(),
