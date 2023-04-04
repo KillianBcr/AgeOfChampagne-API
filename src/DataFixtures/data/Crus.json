@@ -1,0 +1,217 @@
+[
+  {
+    "nom": "Barbonne-Fayel",
+    "description": "Une petite description",
+    "cepage" : 1
+  },
+  {
+    "nom": "Bassuet",
+    "description": "Une petite description",
+    "cepage" : 1
+
+  },
+  {
+    "nom": "Bethon",
+    "description": "Une petite description",
+    "cepage" : 1
+
+  },
+  {
+    "nom": "Chouilly",
+    "description": "Une petite description",
+    "cepage" : 1
+
+  },
+  {
+    "nom": "Epernay",
+    "description": "Une petite description",
+    "cepage" : 1
+
+  },
+  {
+    "nom": "Le Mesnil-sur-Oger",
+    "description": "Une petite description",
+    "cepage" : 1
+
+  },
+  {
+    "nom": "Nogent-l'Abesse",
+    "description": "Une petite description",
+    "cepage" : 1
+
+  },
+  {
+    "nom": "Sézanne",
+    "description": "Une petite description",
+    "cepage" : 1
+
+  },
+  {
+    "nom": "Trépail",
+    "description": "Une petite description",
+    "cepage" : 1
+
+  },
+  {
+    "nom": "Vertus",
+    "description": "Une petite description",
+    "cepage" : 1
+
+  },
+  {
+    "nom": "Villers-Marmery",
+    "description": "Une petite description",
+    "cepage" : 1
+
+  },
+  {
+    "nom": "Vitry-en-Perthois",
+    "description": "Une petite description",
+    "cepage" : 1
+
+  },
+  {
+    "nom": "Aÿ",
+    "description": "Une petite description",
+    "cepage" : 2
+
+  },
+  {
+    "nom": "Baroville",
+    "description": "Une petite description",
+    "cepage" : 2
+
+  },
+  {
+    "nom": "Celles-sur-Ource",
+    "description": "Une petite description",
+    "cepage" : 2
+
+  },
+  {
+    "nom": "Essoyes",
+    "description": "Une petite description",
+    "cepage" : 2
+
+  },
+  {
+    "nom": "Les Riceys",
+    "description": "Une petite description",
+    "cepage" : 2
+
+  },
+  {
+    "nom": "Loches-sur-Ource",
+    "description": "Une petite description",
+    "cepage" : 2
+
+  },
+  {
+    "nom": "Meuville",
+    "description": "Une petite description",
+    "cepage" : 2
+
+  },
+  {
+    "nom": "Neuville-sur-Seine",
+    "description": "Une petite description",
+    "cepage" : 2
+
+  },
+  {
+    "nom": "Urville",
+    "description": "Une petite description",
+    "cepage" : 2
+
+  },
+  {
+    "nom": "Verzenay",
+    "description": "Une petite description",
+    "cepage" : 2
+
+  },
+  {
+    "nom": "Verzy",
+    "description": "Une petite description",
+    "cepage" : 2
+
+  },
+  {
+    "nom": "Chamery",
+    "description": "Une petite description",
+    "cepage" : 3
+
+  },
+  {
+    "nom": "Charly-sur-Marne",
+    "description": "Une petite description",
+    "cepage" : 3
+
+  },
+  {
+    "nom": "Châtillion-sur-Marne",
+    "description": "Une petite description",
+    "cepage" : 3
+
+  },
+  {
+    "nom": "Crouttes-sur-Marne",
+    "description": "Une petite description",
+    "cepage" : 3
+
+  },
+  {
+    "nom": "Damey",
+    "description": "Une petite description",
+    "cepage" : 3
+
+  },
+  {
+    "nom": "Essômes-sur-Marne",
+    "description": "Une petite description",
+    "cepage" : 3
+
+  },
+  {
+    "nom": "Mareuil-le-Port",
+    "description": "Une petite description",
+    "cepage" : 3
+
+  },
+  {
+    "nom": "Trélou-sur-Marne",
+    "description": "Une petite description",
+    "cepage" : 3
+
+  },
+  {
+    "nom": "Trigny",
+    "description": "Une petite description",
+    "cepage" : 3
+
+  },
+  {
+    "nom": "Verneuil",
+    "description": "Une petite description",
+    "cepage" : 3
+
+  },
+  {
+    "nom": "Villedommange",
+    "description": "Une petite description",
+    "cepage" : 3
+
+  },
+  {
+    "nom": "Dormans",
+    "description": "Une petite description",
+    "cepage" : 3
+
+  },
+  {
+    "nom": "Mareuil-sur-Aÿ",
+    "description": "Une petite description",
+    "cepage" : 2
+
+  }
+]
