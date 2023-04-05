@@ -4,13 +4,16 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use App\Factory\RegionFactory;
 
 class RegionFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
+        $region= file_get_contents(__DIR__ . '/data/Regions.json',true);
+        $regions = json_decode($region,true);
+
+
 
         $manager->flush();
     }
