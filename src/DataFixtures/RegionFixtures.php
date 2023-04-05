@@ -13,8 +13,11 @@ class RegionFixtures extends Fixture
         $region= file_get_contents(__DIR__ . '/data/Regions.json',true);
         $regions = json_decode($region,true);
 
-
-
-        $manager->flush();
+        foreach($regions as $elmt)
+        {
+            RegionFactory::createOne([
+                'nom' => $elmt['nom'],
+            ]);
+        }
     }
 }
