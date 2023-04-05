@@ -11,9 +11,10 @@ use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\Metadata\Put;
+use App\Controller\GetImageController;
 use App\Repository\ActiviteRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -42,6 +43,29 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
             normalizationContext: ['groups' => ['get_User', 'get_Me']],
             denormalizationContext: ['groups' => ['set_User']],
             security: "is_granted('ROLE_USER') and object == user"
+        ),
+        new Get(
+            uriTemplate: '/users/{id}/image',
+            formats: [
+                'png' => 'image/png',
+            ],
+            controller: GetImageController::class,
+            openapiContext: [
+                'summary' => 'Retrieves a card image',
+                'responses' => [
+                    '200' => [
+                        'description' => 'Retrieve card image ',
+                        'content' => [
+                            'image/png' => [
+                                'schema' => [
+                                    'type' => 'string',
+                                    'format' => 'binary',
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ),
     ]
 )]
@@ -87,14 +111,8 @@ class Carte
     #[ORM\Column(length: 255)]
     private ?string $qrcode = null;
 
-    #[Vich\UploadableField(mapping: 'carte', fileNameProperty: 'imageName')]
-    private ?File $imageFile = null;
-
-    #[ORM\Column(type: 'string', nullable: true)]
-    private ?string $imageName = null;
-
-    #[ORM\Column(type: 'datetime_immutable', nullable: true)]
-    private \DateTimeImmutable $updatedAt;
+    #[ORM\Column(type: Types::BLOB)]
+    private $image;
 
     public function getId(): ?int
     {
@@ -149,38 +167,14 @@ class Carte
         return $this;
     }
 
-    public function setImageFile(?File $imageFile = null): void
+    public function getImage()
     {
-        $this->imageFile = $imageFile;
-
-        if (null !== $imageFile) {
-            $this->updatedAt = new \DateTimeImmutable();
-        }
+        return $this->image;
     }
 
-    public function getImageFile(): ?File
+    public function setImage($image): self
     {
-        return $this->imageFile;
-    }
-
-    public function setImageName(?string $imageName): void
-    {
-        $this->imageName = $imageName;
-    }
-
-    public function getImageName(): ?string
-    {
-        return $this->imageName;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeImmutable
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
+        $this->image = $image;
 
         return $this;
     }
