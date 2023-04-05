@@ -24,5 +24,22 @@ class RegionPutCest
 
         $this->assertSame(1, $region->getId());
     }
+    
+    public function testGetNom(): void
+    {
+        $region = new Region();
+        $region->setNom('Test region');
+
+        $this->assertSame('Test region', $region->getNom());
+    }
+
+    public function testSetNom(): void
+    {
+        $region = new Region();
+        $region->setNom('Test region');
+
+        $this->assertSame('Test region', $region->getNom());
+    }
+
 
 }
