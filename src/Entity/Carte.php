@@ -111,8 +111,8 @@ class Carte
     #[ORM\Column(length: 255)]
     private ?string $qrcode = null;
 
-    #[ORM\Column(type: Types::BLOB)]
-    private $image;
+    #[ORM\Column(type: Types::BLOB, nullable: true)]
+    private $image = null;
 
     public function getId(): ?int
     {
