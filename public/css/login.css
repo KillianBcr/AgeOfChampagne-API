@@ -3,7 +3,7 @@ html{
 }
 
 body {
-    background-color: #323638;
+    background-color: #242424;
     background-repeat: no-repeat;
     color: white;
     height: 100%;
@@ -14,8 +14,8 @@ body {
 
 
 .container {
-    background-color: #252D30;
-    border: 1px solid #252D30;
+    background-color: #2d2d2d;
+    border: 1px solid #242424;
     box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
     border-radius: 5px;
     padding: 20px;
@@ -37,7 +37,7 @@ body {
 
 .container input[type="email"],
 .container input[type="password"] {
-    background-color: #252D30;
+    background-color: #242424;
     color: white;
     width: 100%;
     padding: 10px;
